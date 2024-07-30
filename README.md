@@ -1,7 +1,7 @@
 # Arrays101
 # `Introduction to Data Structure`
 
-## `Introduction to Arrays`
+## Introduction to Arrays
 Arrays serve as fundamental data structures within programming, designed to store multiple elements of the same type. Their ubiquity across various programming languages underscores their importance, acting as the foundation for constructing more complex data structures. Despite their simplicity, arrays offer a versatile toolset for tackling a wide array of problems, making proficiency in their use crucial, especially during coding interviews.
 
 This guide, tailored for beginners, aims to demystify arrays through comprehensive explanations and practical examples in Java. We begin with foundational concepts, gradually progressing to solving real-world problems encountered in interviews. Each section is enriched with informative articles, complemented by hands-on exercises to reinforce learning.

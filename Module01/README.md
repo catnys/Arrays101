@@ -1,6 +1,6 @@
 # `Introduction`
 
-## Array - A DVD box?
+# Array - A DVD box?
 
 Imagine you have a collection of DVDs that you wish to organize systematically. How would you go about doing this? One approach could be to use a sturdy cardboard box large enough to accommodate all your DVDs in an organized manner, correct? While this seems straightforward, there might arise situations where you need to add a new DVD to the collection or remove one from the lineup. It's essential to ensure that this storage solution is dedicated solely to DVDs, excluding items like clothing or any other personal belongings. Essentially, this box serves as a container for multiple identical items—DVDs—in this context. Each DVD would be protected by a plastic cover, ensuring they remain in good condition. These covers would display essential information such as the movie title, cast list, and additional details. Importantly, every cover would match in size and design, each housing a single DVD. Although we may not assign a specific name to the box itself, it becomes identifiable by its purpose, such as the "DVD box," making it easy for someone else, like your sister, to locate it based on its designated use. Translating this real-life scenario into the realm of computing, we can draw parallels to how data is structured and managed in programming.
 
@@ -16,6 +16,13 @@ However, unlike searching for a physical box, we're dealing with a digital solut
 Arrays are essentially groups of elements that can include various types such as characters, numbers, text, DVDs, games, books, etc. These elements are placed in **adjacent** (contiguous) memory spaces, making it simple to go through all items in the array.
 
 To draw a parallel with physical DVDs, imagine not scattering your DVD collection throughout your home but instead keeping them neatly organized in one large container or on a shelf. This method allows for efficient searching of any DVD without the hassle of moving around.
+
+Java treats arrays of primitive types differently by initializing them with default values:
+
+- **Integer (`int`) arrays** are filled with `0`.
+- **Floating-point (`float` and `double`) arrays** are initialized with `0.0`.
+- **Boolean (`boolean`) arrays** contain `false`.
+
 
 ```java
 // A simple definition for a DVD.
@@ -58,3 +65,92 @@ Similarly, when we allocate space for an Array in computing, we're essentially r
 
 
 ---
+
+# Accessing Elements in Arrays
+
+> The two most primitive Array operations are writing elements into them, and reading elements from them. All other Array operations are built on top of these two primitive operations.
+
+## Writing Items into an Array
+
+To put a DVD into the Array, we need to decide which of the `15` places we'd like it to go in. Each of the places is identified using a number in the range of 0 to `N - 1`. The 1st place is `0`, the 2nd place is `1`, the 3rd place is `2...` all the way up to the 15th place, which is `14`. We call these numbers that identify each place indexes.
+
+```java
+// Firstly, we need to actually create a DVD object for The Avengers.
+DVD avengersDVD = new DVD("The Avengers", 2012, "Joss Whedon");
+
+// Next, we'll put it into the 8th place of the Array. Remember, because we
+// started numbering from 0, the index we want is 7.
+dvdCollection[7] = avengersDVD;
+
+DVD incrediblesDVD = new DVD("The Incredibles", 2004, "Brad Bird");
+DVD findingDoryDVD = new DVD("Finding Dory", 2016, "Andrew Stanton");
+DVD lionKingDVD = new DVD("The Lion King", 2019, "Jon Favreau");
+
+// Put "The Incredibles" into the 4th place: index 3.
+dvdCollection[3] = incrediblesDVD;
+
+// Put "Finding Dory" into the 10th place: index 9.
+dvdCollection[9] = findingDoryDVD;
+
+// Put "The Lion King" into the 3rd place: index 2.
+dvdCollection[2] = lionKingDVD;
+
+DVD starWarsDVD = new DVD("Star Wars", 1977, "George Lucas");
+dvdCollection[3] = starWarsDVD;
+```
+
+Because we just put Star Wars into the Array at index `3`, The Incredibles is no longer in the Array. It has been **overwritten**! If we still have the `incrediblesDVD` variable in scope, then the DVD still exists in the computer's memory. If not though, it's totally gone!
+
+
+
+## Reading Items from an Array
+
+We commonly use a loop to put lots of values into an Array. To illustrate this, let's go to another example. This time, we're going to create an Array of ints and put the first 10 square numbers into it.
+
+```java
+int[] squareNumbers = new int[10];
+
+// Go through each of the Array indexes, from 0 to 9.
+for (int i = 0; i < 10; i++) {
+    // We need to be careful with the 0-indexing. The next square number
+    // is given by (i + 1) * (i + 1).
+    // Calculate it and insert it into the Array at index i.
+    int square = (i + 1) * (i + 1);
+    squareNumbers[i] = square;
+}
+
+```
+
+
+## Writing Items into an Array with a Loop
+
+
+Observe that since we haven't assigned any value to index `10`, its content is displayed as null. In contrast, certain programming languages like C might show arbitrary data for uninitialized array elements. However, Java ensures that unused slots in an object array are automatically set to null, whereas arrays of primitive types are initialized with default values: int arrays with `0`, `float` arrays with `0.0f`, and boolean arrays with false.
+
+```java
+// Print out what's in indexes 7, 10, and 3.
+System.out.println(dvdCollection[7]);
+System.out.println(dvdCollection[10]);
+System.out.println(dvdCollection[3]);
+
+// Will print:
+
+// The Avengers, directed by Joss Whedon, released in 2012
+// null
+// Star Wars, directed by George Lucas, released in 1977
+```
+
+
+## Reading Items from an Array with a Loop
+
+
+Additionally, iterating through and displaying all elements within an Array can be efficiently achieved using a loop. It's important to note that there exists a more refined approach for printing the contents of an Array, which involves utilizing a specific type of loop known as the "for each" loop.
+
+```java
+// For each VALUE in the Array.
+for (int square : squareNumbers) {
+    // Print the current value of square.
+    System.out.println(square);
+}
+// Prints exactly the same as the previous example.
+```

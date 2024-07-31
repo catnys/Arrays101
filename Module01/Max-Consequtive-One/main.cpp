@@ -9,20 +9,23 @@ class Solution {
 public:
     int findMaxConsecutiveOnes(vector<int>& nums) {
         int maxSequence = 0;
+        int maxGlobal = maxSequence;
 
         for(int num: nums) {
             cout << "num : " << num << endl;
             num == 1 ? maxSequence +=1 : maxSequence = 0;
+            
+            if (maxSequence > maxGlobal) maxGlobal = maxSequence;
         }
         
-        return maxSequence;
+        return maxGlobal;
     }
 };
 
 
 int main() {
 
-    int myArray[] = {1,1,0,1,1,1};
+    int myArray[] = {1,0,1,1,0,1};
     int size = sizeof(myArray) / sizeof(myArray[0]); // Calculate the size of the array
 
 

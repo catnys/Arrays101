@@ -14,3 +14,10 @@ By the end of this exploration, you will gain a solid grasp of:
 * Array Properties: Delving into the characteristics that define arrays.
 * Array Operations: Learning how to perform fundamental operations on arrays.
 * Array Techniques: Exploring innovative ways to leverage arrays in programming tasks.
+
+# References
+
+1. [Arrays101](https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/) on the official website of Leetcode
+
+
+

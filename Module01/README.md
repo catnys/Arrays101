@@ -154,3 +154,115 @@ for (int square : squareNumbers) {
 }
 // Prints exactly the same as the previous example.
 ```
+
+---
+
+
+# Array Capacity VS Length
+
+
+> When someone inquiries about the size of a DVD array, there are two potential responses, each conveying distinct information:
+
+1. **Capacity**: Refers to the maximum number of DVDs the array can accommodate if it were fully utilized.
+2. **Length**: Indicates the current count of DVDs stored within the array.
+
+Both interpretations are accurate but serve different purposes. Understanding the distinction between these terms is crucial for precise communication.
+
+## Array Capacity
+
+Consider an array designed to store DVDs, initialized as follows:
+
+```java
+DVD[] array = new DVD[6];
+```
+
+
+Attempting to add elements beyond `array[5]` (the last index considering zero-based indexing) is invalid. The array's capacity is set to 6 DVDs upon creation, limiting insertion to indices 0 through 5. Accessing any other index, such as -3, 6, or 100, would result in an `ArrayIndexOutOfBoundsException`.
+
+The capacity of an array is predetermined at its creation and remains constant. Modifying the capacity post-creation is analogous to enlarging a pre-made cardboard box, which is impractical and parallels the limitations of arrays in computing.
+
+To manage more than six DVDs, a new, larger array must be instantiated, and all existing DVDs transferred to it, similar to acquiring a bigger box for additional DVDs.
+
+The capacity of an array in Java can be determined by accessing its `length` property, as demonstrated:
+
+```java
+int capacity = array.length; System.out.println("The Array has a capacity of " + capacity);
+```
+
+This snippet outputs: "The Array has a capacity of 6", highlighting the unconventional method (.length) to retrieve an array's capacity across various programming languages.
+
+---
+
+# Array Length
+
+The other definition of length is the number of DVDs, or other items, currently in the Array. This is something you'll need to keep track of yourself, and you won't get any errors if you overwrite an existing DVD, or if you leave a gap in the Array.
+
+You might have noticed that we've been using a length variable in our previous examples, to keep track of the next empty index.
+
+```java
+// Create a new array with a capacity of 6.
+int[] array = new int[6];
+
+// Current length is 0, because it has 0 elements.
+int length = 0;
+
+// Add 3 items into it.
+for (int i = 0; i < 3; i++) {
+    array[i] = i * i;
+    // Each time we add an element, the length goes up by one.
+    length++;
+}
+
+System.out.println("The Array has a capacity of " + array.length);
+System.out.println("The Array has a length of " + length);
+```
+
+
+---
+
+# Handling Array Parameters
+
+Most Array questions on LeetCode have an Array passed in as a parameter, with no "length" or "capacity" parameter explicitly mentioned. Let's explore what this means with an example.
+
+## Example Problem Description
+
+**Problem:** Given a binary array, find the maximum number of consecutive 1s in this array.
+
+**Code Template Provided:**
+
+```java
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        
+    }
+}
+```
+
+The only parameter is `nums`; an Array. At first glance, it seems impossible to solve this question without knowing how long `nums` is. However, it's actually quite straightforward.
+
+## Assumption When No Length/Capacity Parameter Is Given
+
+When an Array is given as a parameter, without any additional information, you can safely assume that `length == capacity`. That is, the Array is exactly the right size to hold all of its data. Therefore, you can use `.length` to determine the size of the Array.
+
+## Important Note
+
+Arrays are 0-indexed. The capacity/length represents the number of items, not the highest index. The highest index is `.length - 1`. To iterate over all items in the Array, you can do the following:
+
+
+
+```java
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        // Hint: Initialise and declare a variable here to 
+        // keep track of how many 1's you've seen in a row.
+        for (int i = 0; i < nums.length; i++) {
+            // Do something with element nums[i].
+        }
+    }
+}
+```
+
+
+# References
+
+1. [Arrays101](https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/) on the official website of Leetcode

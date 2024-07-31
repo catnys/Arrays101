@@ -8,3 +8,9 @@ Let's say you're tasked with creating a software application to manage a collect
 
 Moreover, you're informed about the capacity constraints of this virtual library, specifying a limit on the total number of DVDs it can hold. Given the nature of the content, it wouldn't make sense to stockpile outdated films from decades ago unless they happen to be classics, right? Imagine the requirement dictates maintaining a maximum of 100 DVDs in the inventory. This limitation is crucial as it guides the selection of the appropriate storage solution, akin to finding a box that precisely fits the DVDs without excess space.
 However, unlike searching for a physical box, we're dealing with a digital solution. The concept that comes to mind here is an Array, a programming construct designed for storing and organizing data elements efficiently.
+
+## What Is an Array ? 
+
+Arrays are essentially groups of elements that can include various types such as characters, numbers, text, DVDs, games, books, etc. These elements are placed in **adjacent** (contiguous) memory spaces, making it simple to go through all items in the array.
+
+To draw a parallel with physical DVDs, imagine not scattering your DVD collection throughout your home but instead keeping them neatly organized in one large container or on a shelf. This method allows for efficient searching of any DVD without the hassle of moving around.

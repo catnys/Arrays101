@@ -15,15 +15,13 @@ public:
 
 int main() {
 
-    int myArray[] = {12,345,2,6,7896};
+    int myArray[] = {1,0,2,3,0,4,5,0};
     int size = sizeof(myArray) / sizeof(myArray[0]); // Calculate the size of the array
 
 
     std::vector<int> someVector(myArray, myArray + size); // Convert array to vector
-    // vector<int> someVector  = {1,1,0,1,1,1};
+    // vector<int> someVector  = {1,0,2,3,0,4,5,0};
 
     Solution obj;
-    int result = obj.findNumbers(someVector);
-    cout << "Result: " << result << endl;
-
+    obj.duplicateZeros(someVector);
 }

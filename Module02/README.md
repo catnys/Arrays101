@@ -127,5 +127,3 @@ Index 5 contains 10.
 ```
 
 ---
-
-

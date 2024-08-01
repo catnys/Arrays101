@@ -7,16 +7,20 @@ using namespace std;
 
 class Solution {
 public:
-    int sortedSquares(vector<int>& nums) {
-        display(nums);
-
+    
+    // Function to sort the squares of elements in ascending order
+    vector<int> sortedSquares(std::vector<int>& nums) {
+        vector<int> squared(nums.size());
+    
+        // Square each element and store in the new vector
         for(int i = 0; i < nums.size(); i++) {
-            nums[i] *= nums[i];
+            squared[i] = nums[i] * nums[i];
         }
-        display(nums);
-        bubbleSort(nums);
-        display(nums);
-        return 0;
+
+        // Sort the squared array using bubble sort (for demonstration)
+        bubbleSort(squared);
+
+        return squared;
     }
 
     void bubbleSort(vector<int>& nums){
@@ -51,11 +55,10 @@ int main() {
     int size = sizeof(myArray) / sizeof(myArray[0]); // Calculate the size of the array
 
 
-    std::vector<int> someVector(myArray, myArray + size); // Convert array to vector
+    vector<int> someVector(myArray, myArray + size); // Convert array to vector
     // vector<int> someVector  = {-4,-1,0,3,10;
 
     Solution obj;
-    int result = obj.sortedSquares(someVector);
-    cout << "Result: " << result << endl;
+    vector<int> result = obj.sortedSquares(someVector);
 
 }

@@ -9,10 +9,18 @@ class Solution {
 public:
     void duplicateZeros(vector<int>& arr) {
         display(arr);
-        for(int i = arr.size() - 1; i >= 0; i--) {
-            arr[i + 1] = arr[i];
+        for(int i = 0; i < arr.size(); i++) {
+            if(arr[i] == 0){
+                cout << "alert !" << endl;
+                // iterate through that 0 and shift from that 0 till the end
+                for(int j = arr.size() - 1; j >= i+1; j--) {
+                    arr[j+1] = arr[j];
+                }
+                arr[i+1] = arr[i];
+                i++;
+            }
+            display(arr);
         }
-        display(arr);
     }
 
     void display(vector<int> arr) {

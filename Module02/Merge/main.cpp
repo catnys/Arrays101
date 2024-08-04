@@ -17,20 +17,29 @@ public:
         shiftByOne(nums1,2);
         display(nums1);
 
-/*
-        while(m+n != i+j){
+
+        while(m != i){
             if(nums1[i] < nums2[j]) {
-                i++;
+                if(nums1[i]!= 0 && nums1[i+1] <= nums2[j])
+                    i++;
+                else {
+                    shiftByOne(nums1,nums1[i]);
+                    nums1[i+1] = nums2[j];
+                    i++; j++;
+                }
             } else if(nums1[i] > nums2[j]) {
+                shiftByOne(nums1,nums1[i]);
+                nums1[i] = nums2[j];
+                j++;
                 
             } else { // Equality case
-
             // shift element so that we have a space
-            shiftByOne(nums1,)
-                
+            shiftByOne(nums1,nums1[i]);
+            nums1[i+1] = nums2[j];
+            i++; j++;
             }
         }
-*/
+
     }
 
     void shiftByOne(vector<int>& nums1, int element) {

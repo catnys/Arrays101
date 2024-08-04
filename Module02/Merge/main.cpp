@@ -13,14 +13,11 @@ public:
         int lastIndex = m-1; 
 
 
-        display(nums1);
-        shiftByOne(nums1,2);
-        display(nums1);
-
-
-        while(m != i){
+        while(m != i+1){
+            cout << "--- i : " << i << endl;
+            display(nums1);
             if(nums1[i] < nums2[j]) {
-                if(nums1[i]!= 0 && nums1[i+1] <= nums2[j])
+                if(nums1[i+1] <= nums2[j] && nums1[i+1] != 0)
                     i++;
                 else {
                     shiftByOne(nums1,nums1[i]);
@@ -40,14 +37,14 @@ public:
             }
         }
 
+        display(nums1);
+
     }
 
     void shiftByOne(vector<int>& nums1, int element) {
         // Shift elements by 1
         for(int i = nums1.size()-1; i >= 0; i--) {
-            cout << "i : " << i << endl;
             if(element == nums1[i]) {
-                cout << "found !" << endl;
                 break;
             }
             nums1[i+1] = nums1[i];
@@ -56,7 +53,7 @@ public:
     
     void display(vector<int> nums1) {
         for(int i = 0; i < nums1.size(); i++) 
-            cout << " -> " << nums1[i];
+            cout << " " << nums1[i];
         cout << endl;
     }
 };

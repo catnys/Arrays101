@@ -37,8 +37,6 @@ public:
             }
         }
 
-        display(nums1);
-
     }
 
     void shiftByOne(vector<int>& nums1, int element) {
@@ -75,5 +73,7 @@ int main() {
 
     Solution obj;
     obj.merge(nums1Vect, m, nums2Vect, n);
+    cout << "hello" << endl;
+    obj.display(nums1Vect);
 
 }

@@ -10,7 +10,6 @@ public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         int i = 0;
         int j = i;
-        int lastIndex = m-1; 
 
 
         while(m != i+1){

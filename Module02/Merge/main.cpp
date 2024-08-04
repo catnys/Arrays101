@@ -8,7 +8,44 @@ using namespace std;
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        
+        int i = 0;
+        int j = i;
+        int lastIndex = m-1; 
+
+
+        display(nums1);
+        shiftByOne(nums1,2);
+        display(nums1);
+
+/*
+        while(m+n != i+j){
+            if(nums1[i] < nums2[j]) {
+                i++;
+            } else if(nums1[i] > nums2[j]) {
+                
+            } else { // Equality case
+
+            // shift element so that we have a space
+            shiftByOne(nums1,)
+                
+            }
+        }
+*/
+    }
+
+    void shiftByOne(vector<int>& nums1, int element) {
+        // Shift elements by 1
+        for(int i = nums1.size()-1; i >= 0; i--) {
+            if(element == i) {
+                break;
+            }
+            nums1[i+1] = nums1[i];
+        }
+    }
+    
+    void display(vector<int> nums1) {
+        for(int i = 0; i < nums1.size(); i++) 
+            cout << " -> " << nums1[i];
     }
 };
 
@@ -16,18 +53,18 @@ public:
 
 int main() {
 
-    int nums1[] = {-4,-1,0,3,10};
-    int nums2[] = {-4,-1,0,3,10};
+    int nums1[] = {1,2,3,0,0,0};
+    int nums2[] = {2,5,6};
 
     // Calculate the size of the array
-    int size1 = sizeof(nums1) / sizeof(nums1[0]); 
-    int size2 = sizeof(nums2) / sizeof(nums2[0]); 
+    int m = sizeof(nums2) / sizeof(nums2[0]);
+    int n = m; 
 
     // Convert to Vector
-    vector<int> nums1Vect(nums1, nums1 + size1); 
-    vector<int> nums2Vect(nums2, nums2 + size2); 
+    vector<int> nums1Vect(nums1, nums1 + m); 
+    vector<int> nums2Vect(nums2, nums2 + n); 
 
     Solution obj;
-    obj.merge(nums1Vect, size1, nums2Vect, size2);
+    obj.merge(nums1Vect, m, nums2Vect, n);
 
 }

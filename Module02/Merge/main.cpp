@@ -36,7 +36,9 @@ public:
     void shiftByOne(vector<int>& nums1, int element) {
         // Shift elements by 1
         for(int i = nums1.size()-1; i >= 0; i--) {
-            if(element == i) {
+            cout << "i : " << i << endl;
+            if(element == nums1[i]) {
+                cout << "found !" << endl;
                 break;
             }
             nums1[i+1] = nums1[i];
@@ -46,6 +48,7 @@ public:
     void display(vector<int> nums1) {
         for(int i = 0; i < nums1.size(); i++) 
             cout << " -> " << nums1[i];
+        cout << endl;
     }
 };
 
@@ -57,8 +60,8 @@ int main() {
     int nums2[] = {2,5,6};
 
     // Calculate the size of the array
-    int m = sizeof(nums2) / sizeof(nums2[0]);
-    int n = m; 
+    int m = sizeof(nums1) / sizeof(nums1[0]);
+    int n = sizeof(nums2) / sizeof(nums2[0]); 
 
     // Convert to Vector
     vector<int> nums1Vect(nums1, nums1 + m); 

@@ -9,6 +9,8 @@ Given an array of integers, `nums`, and an integer `target`, return the index of
 
 ## Linear Search
 
+L1n3ar_2ea4ch
+
 ### Description
 Linear search involves checking every element in the array until the target is found or the end of the array is reached. This method is simple but can be inefficient for large arrays as it has a time complexity of O(N).
 

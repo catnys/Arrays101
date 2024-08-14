@@ -22,7 +22,7 @@ int main() {
     vector<int> someVector(myArray, myArray + size); // Convert array to vector
 
     Solution obj;
-    bool result = obj.checkIfExist(someVector);
+    bool result = obj.validMountainArray(someVector);
     cout << result << endl;
 
 }

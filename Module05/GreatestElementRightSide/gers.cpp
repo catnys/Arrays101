@@ -16,12 +16,11 @@ public:
 
 int main() {
 
-    int myArray[] = {10,2,5,3};
+    int myArray[] = {17,18,5,4,6,1};
     int size = sizeof(myArray) / sizeof(myArray[0]); // Calculate the size of the array
 
 
     vector<int> someVector(myArray, myArray + size); // Convert array to vector
-    // vector<int> someVector  = {-4,-1,0,3,10;
 
     Solution obj;
     vector<int> result = obj.replaceElements(someVector);

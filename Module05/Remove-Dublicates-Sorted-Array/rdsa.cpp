@@ -9,7 +9,8 @@ using namespace std;
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        
+        int a = 5;
+        return a;
     }
 };
 
@@ -25,6 +26,6 @@ int main() {
     cout << size << endl;
 
     Solution obj;
-    vector<int> result = obj.replaceElements(someVector);
+    int result = obj.removeDuplicates(someVector);
 
 }

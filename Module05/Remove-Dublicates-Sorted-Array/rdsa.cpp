@@ -11,22 +11,29 @@ public:
     int removeDuplicates(vector<int>& nums) {
         int k = 0;
         int size = nums.size();
-        int* ptr1 = &nums[0];
+        if(size == 1)
+            return 1;
+        int *master = &nums[1];
+        int *watcher = &nums[1];
+        bool lock = false;
         
         // DEBUG Mode
-        //cout << "&nums[0]: " << &nums[0] << " &nums: " << &nums << " *ptr1: " << *ptr1 << " p1: " << ptr1 << " *ptr2: " << *ptr2 << "ptr2: " << ptr2 << endl;
+        //cout << "&nums[0]: " << &nums[0] << " &nums: " << &nums << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << "master: " << master << endl;
 
 
         for(int i = 0; i < size; i++) {
-            int* ptr2 = &nums[i];
-            if(*ptr1 == *ptr2) {
+            
+            if((*master == *(watcher))){
                 // 0 , 0
-                ptr1+=1;
+                *watcher = *(watcher+1);
             } else {
-                *ptr1 = *ptr2;
+                // Change
+                *master = *(watcher);
+                *master = *(master+1);
+                k++;
             }
             
-            //cout << "- nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *ptr1: " << *ptr1 << " p1: " << ptr1 << " *ptr2: " << *ptr2 << " ptr2: " << ptr2 << endl;
+            cout << "- nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << " master: " << master << endl;
         }
         return k;
     }

@@ -23,17 +23,15 @@ public:
 
         for(int i = 0; i < size; i++) {
             
-            if((*master == *(watcher))){
-                // 0 , 0
-                *watcher = *(watcher+1);
-            } else {
+            if(*master != *watcher){
                 // Change
-                *master = *(watcher);
-                *master = *(master+1);
+                *master = *watcher;
                 k++;
             }
             
-            cout << "- nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << " master: " << master << endl;
+            watcher++;
+            
+            //cout << i << ": "<< "k: " << k << " - nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << " master: " << master << endl;
         }
         return k;
     }
@@ -52,5 +50,6 @@ int main() {
 
     Solution obj;
     int result = obj.removeDuplicates(someVector);
+    cout << "k: " << result << endl;
 
 }

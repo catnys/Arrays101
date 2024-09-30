@@ -9,28 +9,20 @@ using namespace std;
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int k = 0;
         int size = nums.size();
-        if(size == 1)
-            return 1;
+        if(size == 0) return 0;
+        if(size == 1) return 1;
+
+        int k = 0;
         int *master = &nums[1];
         int *watcher = &nums[1];
-        bool lock = false;
-        
-        // DEBUG Mode
-        //cout << "&nums[0]: " << &nums[0] << " &nums: " << &nums << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << "master: " << master << endl;
-
-
         for(int i = 0; i < size; i++) {
-            
             if(*master != *watcher){
                 // Change
                 *master = *watcher;
                 k++;
             }
-            
             watcher++;
-            
             //cout << i << ": "<< "k: " << k << " - nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *watcher: " << *watcher << " watcher: " << watcher << " *master: " << *master << " master: " << master << endl;
         }
         return k;

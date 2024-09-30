@@ -9,8 +9,26 @@ using namespace std;
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int a = 5;
-        return a;
+        int k = 0;
+        int size = nums.size();
+        int* ptr1 = &nums[0];
+        
+        // DEBUG Mode
+        //cout << "&nums[0]: " << &nums[0] << " &nums: " << &nums << " *ptr1: " << *ptr1 << " p1: " << ptr1 << " *ptr2: " << *ptr2 << "ptr2: " << ptr2 << endl;
+
+
+        for(int i = 0; i < size; i++) {
+            int* ptr2 = &nums[i];
+            if(*ptr1 == *ptr2) {
+                // 0 , 0
+                ptr1+=1;
+            } else {
+                *ptr1 = *ptr2;
+            }
+            
+            //cout << "- nums[i]: " << nums[i] << " &nums[i]: " << &nums[i] << " *ptr1: " << *ptr1 << " p1: " << ptr1 << " *ptr2: " << *ptr2 << " ptr2: " << ptr2 << endl;
+        }
+        return k;
     }
 };
 
@@ -18,7 +36,7 @@ public:
 
 int main() {
 
-    int myvectay[] = {17,18,5,4,6,1};
+    int myvectay[] = {0,0,1,1,1,2,2,3,4,4};
     int size = sizeof(myvectay) / sizeof(myvectay[0]); // Calculate the size of the vectay
 
 

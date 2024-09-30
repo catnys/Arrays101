@@ -8,24 +8,16 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> replaceElements(vector<int>& arr) {
-        // dummy
-        vector<int> vect = arr;
+    vector<int> replaceElements(vector<int>& vect) {
+        int n = vect.size();
+        int max_from_right = -1;
 
-        
-        for(int i = 0; i < arr.size(); i++){
-            cout << "iteration " << i << " )"<< endl;
-
-            int max;
-            for(int j = i+1; j < arr.size(); j++) {
-                if( arr[j] > arr[i]){
-                    arr[i] = arr[j];
-                    max = arr[j];
-                }
-                    
+        for (int i = n - 1; i >= 0; i--) {
+            int current = vect[i];
+            vect[i] = max_from_right;
+            if (current > max_from_right) {
+                max_from_right = current;
             }
-            cout << "max: " << max << endl;
-            cout << "..." << endl; 
         }
 
         return vect;
@@ -43,11 +35,11 @@ public:
 
 int main() {
 
-    int myArray[] = {17,18,5,4,6,1};
-    int size = sizeof(myArray) / sizeof(myArray[0]); // Calculate the size of the array
+    int myvectay[] = {17,18,5,4,6,1};
+    int size = sizeof(myvectay) / sizeof(myvectay[0]); // Calculate the size of the vectay
 
 
-    vector<int> someVector(myArray, myArray + size); // Convert array to vector
+    vector<int> someVector(myvectay, myvectay + size); // Convert vectay to vector
     cout << size << endl;
 
     Solution obj;

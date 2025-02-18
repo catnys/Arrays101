@@ -1,66 +1,34 @@
-#include<stdio.h>
-#include<iostream>
-#include<vector>
-#include<math.h>
-#include <memory>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-class Solution {
-public:
-     void moveZeroes(vector<int>& nums) {
-        display(nums);
+void moveZeroes(vector<int>& nums) {
+    int n = nums.size();
+    int lastNonZeroFoundAt = 0; // Position to place the next non-zero element
 
-        int* firstNonZero = &nums[0];     // Points to Non-Zero element
-        int* firstZero = &nums[0]; // Points to Zero
-        
-        // iterate through index
-        for(int i = 0; i <= nums.size(); i++) {
-            // find first zeros
-            cout << "i : " << i << "\t nums[i]: " << nums[i];
-
-             if(nums[i] == 0) { // if zero found
-                cout << "\t Zero found!";
-                for(int j = i; j <= nums.size(); j++) {
-                    // find nz's
-                    cout << "\t * j: " << j << "  non-Zero: " << firstNonZero << " ; Zero : " << firstZero << endl;
-
-                }
-            } 
-            cout << endl;
-
+    // Move all non-zero elements to the front of the array
+    for (int i = 0; i < n; i++) {
+        if (nums[i] != 0) {
+            nums[lastNonZeroFoundAt++] = nums[i];
         }
-        
-
     }
 
-    void swap(int*a , int*b) {
-        int temp = *a;
-        *a = *b;
-        *b = temp;
+    // Fill the remaining positions with zeros
+    for (int i = lastNonZeroFoundAt; i < n; i++) {
+        nums[i] = 0;
     }
-
-    void display(vector<int>& vec) {
-         // Displaying the elements
-        for (int i : vec) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-};
-
+}
 
 int main() {
-    
-    int myvect[] = {0,1,0,3,12,0};
-    int size = sizeof(myvect) / sizeof(myvect[0]); // Calculate the size of the vectay
+    vector<int> nums = {0, 1, 0, 3, 12};
+    moveZeroes(nums);
 
-
-    vector<int> someVector(myvect, myvect + size); // Convert vectay to vector
-    cout << "size of the vector: " << size << endl;
-
-    Solution obj;
-    obj.moveZeroes(someVector);
+    // Output the modified array
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    cout << endl;
 
     return 0;
 }

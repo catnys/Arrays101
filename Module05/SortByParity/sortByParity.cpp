@@ -11,6 +11,18 @@ class Solution {
 public:
     vector<int> sortArrayByParity(vector<int>& nums) {
         vector<int> newVec = nums;
+        int n = newVec.size();
+        int* right = &newVec[0]; 
+        int* left = &newVec[0]; 
+
+        for(int i = 0; i < n; i++) {
+            if(*right%2 == 0) { // even
+                swap(left,right);
+                left++;
+            }
+            right++;
+        }
+        display(newVec);
         return newVec;
     }
 
@@ -32,13 +44,10 @@ public:
 
 int main() {
 
-    vector<int> numbers = {3, 1, 2, 4, 5, 6};
+    vector<int> numbers = {3, 1, 2, 4};
     Solution obj;
     
     vector<int> sortedNumbers = obj.sortArrayByParity(numbers);
     obj.display(sortedNumbers);
-
-    obj.display(numbers);
-
     return 0;
 }

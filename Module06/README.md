@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this explore card, we delved into the fundamentals of the Array data structure and its applications in Java. Here's a quick recap of what we covered:
+Hello again ^^ In this explore card, we delved into the fundamentals of the Array data structure and its applications in Java. Here's a quick recap of what we covered:
 
 - **Introduction to Arrays:** We explored the basics of what an Array data structure is and how it functions.
 - **Java Syntax for Arrays:** We learned how to create Arrays in Java, as well as how to read from and write to them.
